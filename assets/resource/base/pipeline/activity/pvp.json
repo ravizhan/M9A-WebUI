@@ -1,0 +1,651 @@
+{
+    "角斗场": {
+        "next": [
+            "开始角斗"
+        ]
+    },
+    "开始角斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    971,
+                    525,
+                    266,
+                    171
+                ],
+                "expected": "角斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "选择阵容",
+            "开始角斗"
+        ]
+    },
+    "选择阵容": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    200,
+                    603,
+                    78,
+                    35
+                ],
+                "expected": "选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "菜单界面",
+            "选择阵容"
+        ]
+    },
+    "菜单界面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    92,
+                    559,
+                    92,
+                    43
+                ],
+                "expected": "队伍评级"
+            }
+        },
+        "next": [
+            "进入2-1",
+            "[JumpBack]偶人",
+            "[JumpBack]缪斯赠予",
+            "[JumpBack]1-1选择",
+            "[JumpBack]1-3战斗",
+            "[JumpBack]1-5结算",
+            "[JumpBack]获得奖励"
+        ]
+    },
+    "进入2-1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    605,
+                    15,
+                    69,
+                    32
+                ],
+                "expected": "2-1"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    22,
+                    19,
+                    49,
+                    47
+                ]
+            }
+        },
+        "post_delay": 1500,
+        "next": [
+            "离场",
+            "进入2-1"
+        ]
+    },
+    "进入事件": {
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "roi": [
+                    1090,
+                    552,
+                    174,
+                    168
+                ],
+                "template": "Combat/Activity/Next_Flag.png"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "偶人": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    133,
+                    362,
+                    975,
+                    59
+                ],
+                "expected": "赛后补给间"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "购买偶人",
+            "[JumpBack]进入事件"
+        ]
+    },
+    "购买偶人": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    217,
+                    135,
+                    846,
+                    394
+                ],
+                "expected": [
+                    "12",
+                    "16"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1500,
+        "next": [
+            "购买偶人1",
+            "购买偶人"
+        ]
+    },
+    "购买偶人1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    633,
+                    589,
+                    36,
+                    29
+                ],
+                "expected": [
+                    "12",
+                    "16"
+                ]
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_wait_freezes": 50,
+        "post_delay": 1500,
+        "next": [
+            "购买偶人1",
+            "进入事件"
+        ]
+    },
+    "1-1选择": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    605,
+                    15,
+                    69,
+                    32
+                ],
+                "expected": "1-1"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    604,
+                    258,
+                    59,
+                    49
+                ]
+            }
+        },
+        "next": [
+            "1-1选择1",
+            "[JumpBack]进入事件"
+        ]
+    },
+    "1-1选择1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    405,
+                    599,
+                    68,
+                    40
+                ],
+                "expected": "选择"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "1-1选择3",
+            "[JumpBack]1-1选择2"
+        ]
+    },
+    "1-1选择2": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    566,
+                    280,
+                    149,
+                    44
+                ],
+                "expected": "获得偶"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    559,
+                    496,
+                    160,
+                    52
+                ]
+            }
+        }
+    },
+    "1-1选择3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    95,
+                    564,
+                    83,
+                    34
+                ],
+                "expected": "队伍评级"
+            }
+        }
+    },
+    "缪斯赠予": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    116,
+                    347,
+                    1058,
+                    78
+                ],
+                "expected": "缪斯赠予"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "缪斯赠予1",
+            "[JumpBack]进入事件"
+        ]
+    },
+    "缪斯赠予1": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    794,
+                    580,
+                    129,
+                    42
+                ],
+                "expected": "领取"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "获得奖励",
+            "缪斯赠予1"
+        ]
+    },
+    "获得奖励": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    275,
+                    76,
+                    715,
+                    273
+                ],
+                "expected": "获得"
+            }
+        },
+        "pre_delay": 1000,
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1113,
+                    342,
+                    76,
+                    82
+                ]
+            }
+        }
+    },
+    "1-3战斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    605,
+                    15,
+                    69,
+                    32
+                ],
+                "expected": "1-3"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    835,
+                    223,
+                    111,
+                    80
+                ]
+            }
+        },
+        "next": [
+            "配对页面",
+            "[JumpBack]进入事件"
+        ]
+    },
+    "配对页面": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    64,
+                    143,
+                    136,
+                    51
+                ],
+                "expected": "敌方评级"
+            }
+        },
+        "next": ["开始配对1"]
+    },
+    "开始配对1": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    881,
+                    264,
+                    52,
+                    43
+                ]
+            }
+        },
+        "post_delay": 2000,
+        "next": [
+            "开始配对2"
+        ]
+    },
+    "开始配对2": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    986,
+                    242,
+                    66,
+                    85
+                ]
+            }
+        },
+        "next": ["开始配对3"]
+    },
+    "开始配对3": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1104,
+                    643,
+                    100,
+                    47
+                ]
+            }
+        },
+        "next": [
+            "自动角斗",
+            "开始战斗"
+        ]
+    },
+    "自动角斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    144,
+                    517,
+                    33,
+                    36
+                ],
+                "expected": "口"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": ["开始战斗"]
+    },
+    "开始战斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    1016,
+                    632,
+                    150,
+                    47
+                ],
+                "expected": "开始"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "战斗",
+            "开始战斗"
+        ]
+    },
+    "战斗": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    22,
+                    28,
+                    205,
+                    46
+                ],
+                "expected": "回合"
+            }
+        },
+        "pre_delay": 5000,
+        "timeout": 60000,
+        "next": [
+            "战斗",
+            "战斗结束"
+        ]
+    },
+    "战斗结束": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    766,
+                    78,
+                    306,
+                    102
+                ],
+                "expected": "战斗"
+            }
+        },
+        "action": {
+            "type": "Click"
+        }
+    },
+    "1-5结算": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "only_rec": true,
+                "roi": [
+                    605,
+                    15,
+                    69,
+                    32
+                ],
+                "expected": "1-5"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    835,
+                    223,
+                    111,
+                    80
+                ]
+            }
+        },
+        "next": [
+            "开始战斗",
+            "[JumpBack]进入事件"
+        ]
+    },
+    "离场": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    861,
+                    575,
+                    73,
+                    87
+                ],
+                "expected": "离场"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "离场确认",
+            "离场"
+        ]
+    },
+    "离场确认": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    742,
+                    399,
+                    124,
+                    47
+                ],
+                "expected": "确认"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "比赛回顾",
+            "离场确认"
+        ]
+    },
+    "比赛回顾": {
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    516,
+                    11,
+                    268,
+                    71
+                ],
+                "expected": "比赛回顾"
+            }
+        },
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1191,
+                    33,
+                    64,
+                    53
+                ]
+            }
+        },
+        "next": [
+            "比赛回顾",
+            "获得物品"
+        ]
+    },
+    "获得物品": {
+        "action": {
+            "type": "Click",
+            "param": {
+                "target": [
+                    1210,
+                    31,
+                    26,
+                    6
+                ]
+            }
+        },
+        "next": [
+            "开始角斗",
+            "获得物品"
+        ]
+    }
+}

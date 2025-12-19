@@ -1,0 +1,273 @@
+{
+    "2.4": {
+        "version_name": "Last Evenings on Earth",
+        "start_time": 1743084000000,
+        "end_time": 1745657999000,
+        "activity": {
+            "combat": {
+                "event_type": "SideStory",
+                "start_time": 1743084000000,
+                "end_time": 1745398799000
+            },
+            "anecdote": {
+                "start_time": 1743498000000,
+                "end_time": 1744707599000
+            }
+        }
+    },
+    "2.5": {
+        "version_name": "Showdown in Chinatown",
+        "start_time": 1745503200000,
+        "end_time": 1748249999000,
+        "activity": {
+            "combat": {
+                "event_type": "SideStory",
+                "start_time": 1745503200000,
+                "end_time": 1748249999000,
+                "override": {
+                    "ActivityMainChapter": {
+                        "expected": [
+                            "开",
+                            "始"
+                        ],
+                        "roi": [
+                            514,
+                            547,
+                            277,
+                            104
+                        ]
+                    }
+                }
+            },
+            "anecdote": {
+                "start_time": 1746522000000,
+                "end_time": 1747731599000
+            },
+            "re-release": {
+                "name": "朔日手记",
+                "alias": "朔日",
+                "start_time": 1747386000000,
+                "end_time": 1748249999000
+            }
+        }
+    },
+    "2.6": {
+        "version_name": "Folie et Déraison",
+        "start_time": 1748527200000,
+        "end_time": 1751533199000,
+        "activity": {
+            "combat": {
+                "event_type": "MainStory",
+                "start_time": 1748527200000,
+                "end_time": 1751273999000
+            },
+            "anecdote": {
+                "start_time": 1748941200000,
+                "end_time": 1751533199000
+            },
+            "re-release": {
+                "name": "再见，来亚什基",
+                "alias": "再见",
+                "start_time": 1750410000000,
+                "end_time": 1751273999000
+            }
+        }
+    },
+    "2.7": {
+        "version_name": "1987 Cosmic Overture",
+        "start_time": 1751551200000,
+        "end_time": 1754557199000,
+        "activity": {
+            "combat": {
+                "event_type": "SideStory",
+                "start_time": 1751551200000,
+                "end_time": 1754297999000
+            },
+            "anecdote": {
+                "start_time": 1751965200000,
+                "end_time": 1753174799000
+            },
+            "re-release": {
+                "name": "飞驰！明日之城",
+                "alias": "飞驰",
+                "start_time": 1753434000000,
+                "end_time": 1754297999000
+            }
+        }
+    },
+    "sp01": {
+        "version_name": "翡冷翠之春",
+        "start_time:": 1754575200000,
+        "end_time": 1758229199000,
+        "activity": {
+            "combat": {
+                "event_type": "SideStory",
+                "start_time": 1754575200000,
+                "end_time": 1757926799000,
+                "override": {
+                    "FlagInActivityMain": {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    1029,
+                                    33,
+                                    96,
+                                    22
+                                ],
+                                "expected": "成就",
+                                "only_rec": true
+                            }
+                        }
+                    },
+                    "ActivityMainChapter": {
+                        "recognition": {
+                            "type": "TemplateMatch",
+                            "param": {
+                                "roi": [
+                                    17,
+                                    507,
+                                    1263,
+                                    213
+                                ],
+                                "template": [
+                                    "Combat/Activity/ActivityMainChapter_sp01.png",
+                                    "Combat/Activity/ActivityMainChapter_sp01_1.png"
+                                ]
+                            }
+                        }
+                    },
+                    "ActivityClickCurStage": {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "roi": [
+                                    523,
+                                    109,
+                                    84,
+                                    54
+                                ],
+                                "expected": [
+                                    "信条"
+                                ]
+                            }
+                        },
+                        "action": {
+                            "param": {
+                                "target": true
+                            }
+                        }
+                    },
+                    "FlagInActivityStage": {
+                        "next": [
+                            "ReadyForAction"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "2.8": {
+        "version_name": "复乐园",
+        "start_time": 1758290400000,
+        "end_time": 1761555599000,
+        "activity": {
+            "combat": {
+                "event_type": "MainStory",
+                "start_time": 1758290400000,
+                "end_time": 1761555599000
+            },
+            "anecdote": {
+                "start_time": 1758704400000,
+                "end_time": 1759913999000
+            }
+        }
+    },
+    "3.0": {
+        "version_name": "行于漫漫长路上",
+        "start_time": 1761739200000,
+        "end_time": 1765349999000,
+        "activity": {
+            "combat": {
+                "event_type": "MainStory",
+                "start_time": 1761739200000,
+                "end_time": 1765090799000
+            },
+            "anecdote": {
+                "start_time": 1762326000000,
+                "end_time": 1763535599000
+            },
+            "re-release": {
+                "name": "圣火纪行：东区黎明",
+                "alias": "圣火",
+                "start_time": 1764226800000,
+                "end_time": 1765090799000
+            }
+        }
+    },
+    "3.1": {
+        "version_name": "The Midnight Whistle",
+        "start_time": 1765465200000,
+        "end_time": 1769075999000,
+        "activity": {
+            "combat": {
+                "event_type": "SideStory",
+                "start_time": 1765465200000,
+                "end_time": 1768816799000,
+                "override": {
+                    "FlagInActivityMain": {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    1010,
+                                    30,
+                                    46,
+                                    25
+                                ],
+                                "only_rec": true
+                            }
+                        }
+                    },
+                    "ActivityMainChapter": {
+                        "recognition": {
+                            "type": "OCR",
+                            "param": {
+                                "expected": [
+                                    "欢迎",
+                                    "乘车"
+                                ]
+                            }
+                        }
+                    },
+                    "ActivityCombatStageNum": {
+                        "recognition": {
+                            "param": {
+                                "expected": "[01][0-9]"
+                            }
+                        }
+                    }
+                }
+            },
+            "re-release": {
+                "name": "地球上最后的夜晚",
+                "alias": "地球上最后的夜晚",
+                "start_time": 1767952800000,
+                "end_time": 1768816799000,
+                "override": {
+                    "FlagInActivityMain": {
+                        "recognition": {
+                            "param": {
+                                "roi": [
+                                    1010,
+                                    30,
+                                    46,
+                                    25
+                                ],
+                                "only_rec": true
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
