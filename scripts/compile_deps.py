@@ -5,10 +5,20 @@
 # ]
 # ///
 
+import importlib.util
+from pathlib import Path
 import requirements
 import subprocess
 import sys
 import os
+
+def get_package_path(package_name):
+    """动态获取已安装包的物理路径"""
+    spec = importlib.util.find_spec(package_name)
+    if spec is None or spec.submodule_search_locations is None:
+        return None
+    # 返回包的文件夹路径 (取第一个搜索位置)
+    return spec.submodule_search_locations[0]
 
 def run_command(cmd):
     print(f"Running: {' '.join(cmd)}")
@@ -33,16 +43,19 @@ def main():
             run_command(["uv", "pip", "install", package_name])
 
             print(f'\n--- Compiling package: {package_name} ---')
+
+            pkg_path = get_package_path(package_name)
+        
+            if not pkg_path:
+                print(f"Warning: Could not find path for package '{package_name}', skipping...")
+                continue
             
             nuitka_cmd = [
                 sys.executable, "-m", "nuitka",
                 "--mode=package",
-                f"--output-dir=agent_deps/{package_name}",
-                f"--include-package={package_name}",
-                f"--include-package-data={package_name}",
-                "--follow-imports",
+                f"--output-dir=agent_deps",
                 "--remove-output",
-                package_name
+                pkg_path
             ]
             
             try:

@@ -76,9 +76,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - os: ubuntu-24.04
-            platform: linux
-            arch: x64
+          # - os: ubuntu-24.04
+          #   platform: linux
+          #   arch: x64
 
           # - os: ubuntu-24.04-arm
           #   platform: linux
@@ -92,9 +92,9 @@ jobs:
           #   platform: osx
           #   arch: arm64
 
-          # - os: windows-2025
-          #   platform: win
-          #   arch: x64
+          - os: windows-2025
+            platform: win
+            arch: x64
 
           # - os: windows-11-arm
           #   platform: win
@@ -147,11 +147,15 @@ jobs:
         run: |
           7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z -o./build -y
 
-      - name: Breakpoint if tests failed
-        uses: namespacelabs/breakpoint-action@v0
-        with:
-          duration: 30m
-          authorized-users: ravizhan
+      - name: Compress Final Artifact
+        run: |
+          7z a MFA-WebUI-${{ needs.meta.outputs.tag }}-${{ matrix.platform }}-${{ matrix.arch }}.7z ./build/* -mx=9 -mt
+      
+      # - name: Breakpoint if tests failed
+      #   uses: namespacelabs/breakpoint-action@v0
+      #   with:
+      #     duration: 30m
+      #     authorized-users: ravizhan
 
   changelog:
     name: Generate changelog
