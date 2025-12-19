@@ -141,6 +141,7 @@ jobs:
           repository: ravizhan/MFA-WebUI
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: 20204501439
+          path: "./"
 
       - name: Decompress Artifact to build(unzip)
         run: |

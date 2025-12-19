@@ -41,8 +41,7 @@ def main():
                 f"--include-package={package_name}",
                 f"--include-package-data={package_name}",
                 "--follow-imports",
-                "--remove-output",
-                package_name
+                "--remove-output"
             ]
             
             try:
