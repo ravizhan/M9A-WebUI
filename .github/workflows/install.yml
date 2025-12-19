@@ -141,7 +141,7 @@ jobs:
 
       - name: Decompress Artifact to build
         run: |
-          7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z -o./build -y
+          7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z -obuild -y
 
       - name: Compress Final Artifact
         run: |
