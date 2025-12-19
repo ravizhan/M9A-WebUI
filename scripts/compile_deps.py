@@ -63,7 +63,7 @@ def main():
             nuitka_cmd = [
                 sys.executable, "-m", "nuitka",
                 "--mode=package",
-                f"--output-dir=agent_deps",
+                f"--output-dir=build",
                 "--remove-output",
                 "--assume-yes-for-downloads",
                 pkg_path
