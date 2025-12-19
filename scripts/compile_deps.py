@@ -39,7 +39,7 @@ def main():
                 "--module",
                 f"--output-dir=agent_deps/{package_name}",
                 f"--include-package={package_name}",
-                "--include-package-data",
+                f"--include-package-data={package_name}",
                 "--follow-imports",
                 "--remove-output",
                 package_name

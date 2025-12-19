@@ -137,7 +137,7 @@ jobs:
       - name: Download Artifact
         uses: actions/download-artifact@v5
         with:
-          name: MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z
+          name: MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}
           repository: ravizhan/MFA-WebUI
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: 20204501439
