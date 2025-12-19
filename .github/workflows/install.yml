@@ -145,11 +145,9 @@ jobs:
 
       - name: Decompress Artifact to build
         run: |
-          7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.zip -y
           7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z -o./build -y
 
       - name: Breakpoint if tests failed
-        if: failure()
         uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 30m
