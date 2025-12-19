@@ -65,6 +65,7 @@ def main():
                 "--mode=package",
                 f"--output-dir=agent_deps",
                 "--remove-output",
+                "--assume-yes-for-downloads"
                 pkg_path
             ]
             
