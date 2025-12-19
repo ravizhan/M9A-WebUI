@@ -155,8 +155,8 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: M9A-WebUI-${{ needs.meta.outputs.tag }}-${{ matrix.platform }}-${{ matrix.arch }}.7z
-
+          name: M9A-WebUI-${{ needs.meta.outputs.tag }}-${{ matrix.platform }}-${{ matrix.arch }}
+          path: M9A-WebUI-${{ needs.meta.outputs.tag }}-${{ matrix.platform }}-${{ matrix.arch }}.7z
 
   changelog:
     name: Generate changelog
