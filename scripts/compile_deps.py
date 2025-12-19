@@ -37,6 +37,7 @@ def main():
             nuitka_cmd = [
                 sys.executable, "-m", "nuitka",
                 "--module",
+                "--mode=package",
                 f"--output-dir=agent_deps/{package_name}",
                 f"--include-package={package_name}",
                 f"--include-package-data={package_name}",

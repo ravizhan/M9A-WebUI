@@ -143,7 +143,7 @@ jobs:
           run-id: 20204501439
           path: "./"
 
-      - name: Decompress Artifact to build(unzip)
+      - name: Decompress Artifact to build
         run: |
           7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.zip -y
           7z x MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}.7z -o./build -y
