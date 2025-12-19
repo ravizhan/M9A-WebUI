@@ -59,6 +59,7 @@ def main():
             nuitka_cmd = [
                 sys.executable, "-m", "nuitka",
                 "--mode=package",
+                "--standalone",
                 f"--output-dir=build",
                 "--remove-output",
                 "--assume-yes-for-downloads",
