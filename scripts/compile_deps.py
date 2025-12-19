@@ -13,10 +13,6 @@ import subprocess
 import sys
 
 def get_package_path(package_name):
-    if package_name.lower() == 'pillow':
-        spec = importlib.util.find_spec('PIL')
-        if spec and spec.submodule_search_locations:
-            return spec.submodule_search_locations[0]
     spec = importlib.util.find_spec(package_name)
     if spec is None:
         return None
@@ -45,7 +41,7 @@ def main():
     
         for req in reqs:
             package_name = req.name
-            if package_name == 'maafw' or not package_name:
+            if package_name in ['maafw','pillow'] or not package_name:
                 continue
             
             print(f'\n--- Installing package: {package_name} ---')
