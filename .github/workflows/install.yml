@@ -153,6 +153,7 @@ jobs:
 
       - name: Breakpoint if tests failed
         uses: namespacelabs/breakpoint-action@v0
+        if: failure()
         with:
           duration: 30m
           authorized-users: ravizhan
