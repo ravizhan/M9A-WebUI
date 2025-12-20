@@ -9,7 +9,7 @@ shutil.copy2("assets/interface.json","build")
 with open("build/interface.json", "r", encoding="utf-8") as f:
     interface = json.load(f)
 interface["version"] = "3.17.4"
-interface["custom_title"] = f"M9A 3.17.4 | 亿韭韭韭小助手"
+interface["custom_title"] = "M9A 3.17.4 | 亿韭韭韭小助手"
 interface["agent"] = {
         "child_exec": "./python/python.exe",
         "child_args": [
