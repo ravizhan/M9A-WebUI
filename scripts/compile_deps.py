@@ -14,7 +14,6 @@ import sys
 import requirements
 from packaging.requirements import Requirement
 
-# 常见的开发/测试/文档包黑名单，这些包不应该被打包进运行环境
 BLACKLIST = {
     'pytest', 'pytest-cov', 'pytest-xdist', 'pytest-timeout', 'pytest-mock',
     'sphinx', 'sphinx-rtd-theme', 'furo', 'myst-parser', 'sphinx-copybutton',
@@ -58,23 +57,26 @@ def get_all_dependencies(package_names):
         
         all_deps.add(pkg_normalized)
         
-        requires = importlib.metadata.requires(pkg_normalized)
-        if requires:
-            for req_str in requires:
-                try:
-                    req = Requirement(req_str)
-                    if req.marker and 'extra' in str(req.marker):
-                        continue
-                        
-                    dep_name = req.name.lower().replace("_", "-")
-                    if dep_name not in all_deps and dep_name not in BLACKLIST:
-                        to_process.add(dep_name)
-                except Exception:
-                    match = re.match(r'^([a-zA-Z0-9\-_]+)', req_str)
-                    if match:
-                        dep_name = match.group(1).lower().replace("_", "-")
+        try:
+            requires = importlib.metadata.requires(pkg_normalized)
+            if requires:
+                for req_str in requires:
+                    try:
+                        req = Requirement(req_str)
+                        if req.marker and 'extra' in str(req.marker):
+                            continue
+                            
+                        dep_name = req.name.lower().replace("_", "-")
                         if dep_name not in all_deps and dep_name not in BLACKLIST:
                             to_process.add(dep_name)
+                    except Exception:
+                        match = re.match(r'^([a-zA-Z0-9\-_]+)', req_str)
+                        if match:
+                            dep_name = match.group(1).lower().replace("_", "-")
+                            if dep_name not in all_deps and dep_name not in BLACKLIST:
+                                to_process.add(dep_name)
+        except importlib.metadata.PackageNotFoundError:
+            pass
             
     return all_deps
 
