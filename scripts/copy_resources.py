@@ -17,6 +17,6 @@ interface["agent"] = {
             "./agent/main.py"
         ],
         "timeout": -1
-    },
+    }
 with open("build/interface.json", "w", encoding="utf-8") as f:
     json.dump(interface, f, ensure_ascii=False, indent=4)
