@@ -12,6 +12,18 @@ import re
 import subprocess
 import sys
 import requirements
+from packaging.requirements import Requirement
+
+# 常见的开发/测试/文档包黑名单，这些包不应该被打包进运行环境
+BLACKLIST = {
+    'pytest', 'pytest-cov', 'pytest-xdist', 'pytest-timeout', 'pytest-mock',
+    'sphinx', 'sphinx-rtd-theme', 'furo', 'myst-parser', 'sphinx-copybutton',
+    'mypy', 'pylint', 'flake8', 'ruff', 'black', 'tox', 'pre-commit',
+    'twine', 'build', 'check-manifest', 'coverage', 'pyroma', 'setuptools',
+    'wheel', 'sphinx-inline-tabs', 'sphinxext-opengraph', 'sphinx-autobuild',
+    'pytest-mypy-plugins', 'pytest-pylint', 'pytest-black', 'nuitka',
+    'requirements-parser', 'packaging', 'pip'
+}
 
 def run_command(cmd):
     print(f"执行命令: {' '.join(cmd)}")
@@ -40,22 +52,29 @@ def get_all_dependencies(package_names):
     while to_process:
         pkg = to_process.pop()
         pkg_normalized = pkg.lower().replace("_", "-")
-        if pkg_normalized in all_deps or pkg_normalized in ['python']:
+        
+        if pkg_normalized in all_deps or pkg_normalized in ['python'] or pkg_normalized in BLACKLIST:
             continue
         
         all_deps.add(pkg_normalized)
         
-        try:
-            requires = importlib.metadata.requires(pkg_normalized)
-            if requires:
-                for req in requires:
-                    match = re.match(r'^([a-zA-Z0-9\-_]+)', req)
+        requires = importlib.metadata.requires(pkg_normalized)
+        if requires:
+            for req_str in requires:
+                try:
+                    req = Requirement(req_str)
+                    if req.marker and 'extra' in str(req.marker):
+                        continue
+                        
+                    dep_name = req.name.lower().replace("_", "-")
+                    if dep_name not in all_deps and dep_name not in BLACKLIST:
+                        to_process.add(dep_name)
+                except Exception:
+                    match = re.match(r'^([a-zA-Z0-9\-_]+)', req_str)
                     if match:
-                        dep_name = match.group(1).lower()
-                        if dep_name not in all_deps:
+                        dep_name = match.group(1).lower().replace("_", "-")
+                        if dep_name not in all_deps and dep_name not in BLACKLIST:
                             to_process.add(dep_name)
-        except importlib.metadata.PackageNotFoundError:
-            print(f"Warning: 尚未安装 {pkg_normalized}，可能无法完整解析其依赖。")
             
     return all_deps
 
@@ -91,7 +110,9 @@ def main():
     failed_packages = []
     
     for pkg_name in full_manifest:
-        if pkg_name in ['nuitka', 'requirements-parser', 'packaging', 'pip', 'maa', 'numpy', 'maafw', 'PIL', 'pillow']:
+        if pkg_name in ['nuitka', 'requirements-parser', 'packaging', 'pip', 'pylint', 'numpy', 'maafw', 'maaagentbinary', 'pillow']:
+            continue
+        if 'test' in pkg_name or 'doc' in pkg_name or 'sample' in pkg_name:
             continue
 
         print(f"\n>>> 正在处理: {pkg_name}")
