@@ -106,6 +106,8 @@ jobs:
     steps:
       - name: Check-out repository
         uses: actions/checkout@v4
+        with:
+          submodules: true
 
       - name: 'Workaround for missing zstd in windows-11-arm'
         if: matrix.os == 'windows-11-arm'
