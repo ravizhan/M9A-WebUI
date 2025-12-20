@@ -80,25 +80,25 @@ jobs:
             platform: linux
             arch: x64
 
-          # - os: ubuntu-24.04-arm
-          #   platform: linux
-          #   arch: arm64
+          - os: ubuntu-24.04-arm
+            platform: linux
+            arch: arm64
 
-          # - os: macos-15-intel
-          #   platform: osx
-          #   arch: x64
+          - os: macos-15-intel
+            platform: osx
+            arch: x64
 
-          # - os: macos-15
-          #   platform: osx
-          #   arch: arm64
+          - os: macos-15
+            platform: osx
+            arch: arm64
 
-          # - os: windows-2025
-          #   platform: win
-          #   arch: x64
+          - os: windows-2025
+            platform: win
+            arch: x64
 
-          # - os: windows-11-arm
-          #   platform: win
-          #   arch: arm64
+          - os: windows-11-arm
+            platform: win
+            arch: arm64
     runs-on: ${{ matrix.os }}
     name: Build (${{ matrix.platform }}-${{ matrix.arch }})
     needs: meta
@@ -140,7 +140,7 @@ jobs:
           name: MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}
           repository: ravizhan/MFA-WebUI
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: 20377084318
+          run-id: 20388539480
           path: ./
 
       - name: Decompress Artifact to build
