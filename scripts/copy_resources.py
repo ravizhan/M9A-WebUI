@@ -1,6 +1,7 @@
 import shutil
 import os
 import json
+from pathlib import Path
 
 os.makedirs("build", exist_ok=True)
 shutil.copytree("agent", "build/agent")
@@ -20,3 +21,9 @@ interface["agent"] = {
     }
 with open("build/interface.json", "w", encoding="utf-8") as f:
     json.dump(interface, f, ensure_ascii=False, indent=4)
+
+shutil.copytree(
+    Path("assets") / "MaaCommonAssets" / "OCR" / "ppocr_v4" / "zh_cn",
+    Path("build") / "resource" / "base" / "model" / "ocr",
+    dirs_exist_ok=True,
+)
