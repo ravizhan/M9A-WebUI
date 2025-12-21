@@ -142,7 +142,7 @@ jobs:
           name: MFA-WebUI-${{ github.ref_name }}-${{ matrix.platform }}-${{ matrix.arch }}
           repository: ravizhan/MFA-WebUI
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          run-id: 20388539480
+          run-id: 20408449236
           path: ./
 
       - name: Decompress Artifact to build
